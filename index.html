@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random User Generator</title>
+  </head>
+  <body>
+    <div id="app">
+      <img :class="gender" v-bind:src="picture" :alt="`$firstName $lastName`" />
+      <h1>{{firstName}} {{lastName}}</h1>
+      <h3>email: {{email}}</h3>
+      <button v-on:click="getUser()" :class="gender">Get Random User</button>
+    </div>
+
+    <div id="counter">Counter: {{ counter }}</div>
+
+    <div id="bind-attribute">
+      <span v-bind:title="message">
+        Hover your mouse over me for a few seconds to see my dynamically bound
+        title!
+      </span>
+    </div>
+
+    <div id="event-handling" class="demo">
+      <p>{{message}}</p>
+      <button v-on:click="reverseMessage">Reserve Message</button>
+    </div>
+
+    <div id="two-way-binding">
+      <p>{{message}}</p>
+      <input v-model="message" />
+    </div>
+
+    <div id="condititional-renderering">
+      <span v-if="seen">Now you seen me</span>
+    </div>
+
+    <div id="list-rendering">
+      <ol>
+        <li v-for="todo in todos">{{todo.text}}</li>
+      </ol>
+    </div>
+
+    <div id="todo-list-app">
+      <ol>
+        <todo-item
+          v-for="item in groceryList"
+          v-bind:todo="item"
+          v-bind_key="item.id"
+        >
+        </todo-item>
+      </ol>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.5"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
